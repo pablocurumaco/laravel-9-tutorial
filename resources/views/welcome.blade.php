@@ -1,9 +1,7 @@
-@extends('layouts.app')
+<x-layouts.app
+    title="Home"
+    meta-description="Home meta description">
 
-@section('title', 'Welcome')
-@section('meta-description', 'Home meta description')
-
-@section('content')
     <div class="container">
         <div class="row">
             <div class="col">
@@ -11,4 +9,4 @@
             </div>
         </div>
     </div>
-@endsection
+</x-layouts.app>
