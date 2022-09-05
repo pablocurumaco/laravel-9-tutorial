@@ -12,7 +12,11 @@
         <div class="row">
             <div class="col">
                 @foreach($posts as $post)
-                    <h2>{{ $post }}</h2>
+                    <h2>
+                        <a href="/blog/1">
+                            {{ $post->title }}
+                        </a>
+                    </h2>
                 @endforeach
             </div>
         </div>
