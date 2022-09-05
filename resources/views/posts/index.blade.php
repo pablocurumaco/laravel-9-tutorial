@@ -13,7 +13,7 @@
             <div class="col">
                 @foreach($posts as $post)
                     <h2>
-                        <a href="/blog/1">
+                        <a href="{{ route('posts.show', $post) }}">
                             {{ $post->title }}
                         </a>
                     </h2>
