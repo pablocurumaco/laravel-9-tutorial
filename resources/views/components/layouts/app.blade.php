@@ -13,6 +13,10 @@
 
 <x-layouts.navigation />
 
+@if(session('status'))
+    {{ session('status') }}
+@endif
+
 {{-- My main content here --}}
 {{ $slot }}
 
