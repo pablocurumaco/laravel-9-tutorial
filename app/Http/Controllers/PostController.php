@@ -15,7 +15,22 @@ class PostController extends Controller
         return view('posts.index', ['posts' => $posts]);
     }
 
-    public function show(Post $post_id)
+    public function create(): view
+    {
+        return view('posts.create');
+    }
+
+    public function store(Request $request)
+    {
+        $post = new Post();
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+
+        return to_route('posts.index');
+    }
+
+    public function show(Post $post_id): view
     {
         return view('posts.show', ['post' => $post_id]);
     }
