@@ -9,6 +9,13 @@ use Illuminate\View\View;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', [
+           'except' => ['index', 'show']
+        ]);
+    }
+
     public function index(): view
     {
         $posts = Post::get();
