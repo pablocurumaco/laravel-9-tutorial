@@ -2,11 +2,5 @@
     title="About"
     meta-description="About meta description">
 
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1>About us</h1>
-            </div>
-        </div>
-    </div>
+    <h1 class="my-4 font-serif text-3xl text-center text-sky-600 dark:text-sky-500">About</h1>
 </x-layouts.app>
