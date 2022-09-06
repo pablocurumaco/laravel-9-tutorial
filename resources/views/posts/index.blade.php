@@ -18,11 +18,18 @@
         <div class="row">
             <div class="col">
                 @foreach($posts as $post)
-                    <h2>
-                        <a href="{{ route('posts.show', $post) }}">
-                            {{ $post->title }}
-                        </a>
-                    </h2>
+                    <div class="row">
+                        <div class="col-10">
+                            <h2>
+                                <a href="{{ route('posts.show', $post) }}">
+                                    {{ $post->title }}
+                                </a>
+                            </h2>
+                        </div>
+                        <div class="col">
+                            <a href="{{ route('posts.edit', $post) }}">Edit</a>
+                        </div>
+                    </div>
                 @endforeach
             </div>
         </div>
