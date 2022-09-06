@@ -26,8 +26,15 @@
                                 </a>
                             </h2>
                         </div>
-                        <div class="col">
+                        <div class="col-1">
                             <a href="{{ route('posts.edit', $post) }}">Edit</a>
+                        </div>
+                        <div class="col-1">
+                            <form action="{{ route('posts.destroy', $post) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">Delete</button>
+                            </form>
                         </div>
                     </div>
                 @endforeach

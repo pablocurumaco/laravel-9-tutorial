@@ -25,7 +25,8 @@ class SavePostRequest extends FormRequest
     {
         if ($this->isMethod('PATCH')) {
             return [
-                'title' => ['required']
+                'title' => ['required'],
+                'body' => ['required']
             ];
         }
 

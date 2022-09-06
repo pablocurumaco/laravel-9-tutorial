@@ -28,14 +28,14 @@ class PostController extends Controller
         return to_route('posts.index')->with('status', 'Post created!');
     }
 
-    public function show(Post $post_id): view
+    public function show(Post $post): view
     {
-        return view('posts.show', ['post' => $post_id]);
+        return view('posts.show', ['post' => $post]);
     }
 
-    public function edit(Post $post_id): view
+    public function edit(Post $post): view
     {
-        return view('posts.edit', ['post' => $post_id]);
+        return view('posts.edit', ['post' => $post]);
     }
 
     public function update(SavePostRequest $request, Post $post)
@@ -43,5 +43,12 @@ class PostController extends Controller
         $post->update($request->validated());
 
         return to_route('posts.show', $post)->with('status', 'Post updated!');
+    }
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+
+        return to_route('posts.index')->with('status', 'Post deleted!');
     }
 }
