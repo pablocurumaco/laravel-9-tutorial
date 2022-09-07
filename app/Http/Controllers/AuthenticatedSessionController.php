@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 
 class AuthenticatedSessionController extends Controller
 {
-    public function store(Request $request)
+    /**
+     * @throws ValidationException
+     */
+    public function store(Request $request): RedirectResponse
     {
         $credentials = $request->validate([
             'email' => ['required', 'string', 'email'],
@@ -27,7 +31,7 @@ class AuthenticatedSessionController extends Controller
         return redirect()->intended('/')->with('status', "You're logged in");
     }
 
-    public function destroy(Request $request)
+    public function destroy(Request $request): RedirectResponse
     {
         Auth::guard('web')->logout();
 

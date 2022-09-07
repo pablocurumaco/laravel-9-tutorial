@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SavePostRequest;
 use App\Models\Post;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -28,7 +29,7 @@ class PostController extends Controller
         return view('posts.create', ['post' => new Post()]);
     }
 
-    public function store(SavePostRequest $request)
+    public function store(SavePostRequest $request): RedirectResponse
     {
         Post::create($request->validated());
 
@@ -52,7 +53,7 @@ class PostController extends Controller
         return to_route('posts.show', $post)->with('status', 'Post updated!');
     }
 
-    public function destroy(Post $post)
+    public function destroy(Post $post): RedirectResponse
     {
         $post->delete();
 
